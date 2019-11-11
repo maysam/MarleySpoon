@@ -12,9 +12,7 @@
 }
 
 .ant-card {
-  float: left;
   margin: 20px;
-  min-width: 200px;
 }
 
 .ant-card-meta-avatar {
