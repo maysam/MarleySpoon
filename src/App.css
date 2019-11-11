@@ -1,0 +1,22 @@
+@import '~antd/dist/antd.min.css';
+
+.App-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.App-header > span {
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.ant-card {
+  float: left;
+  margin: 20px;
+  min-width: 200px;
+}
+
+.ant-card-meta-avatar {
+  float: unset;
+}
