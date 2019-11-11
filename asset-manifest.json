@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/MarleySpoon/static/css/main.f0fa7b51.chunk.css",
-    "main.js": "/MarleySpoon/static/js/main.beb2f133.chunk.js",
-    "main.js.map": "/MarleySpoon/static/js/main.beb2f133.chunk.js.map",
+    "main.css": "/MarleySpoon/static/css/main.c097d5cf.chunk.css",
+    "main.js": "/MarleySpoon/static/js/main.dfb36a40.chunk.js",
+    "main.js.map": "/MarleySpoon/static/js/main.dfb36a40.chunk.js.map",
     "runtime~main.js": "/MarleySpoon/static/js/runtime~main.4d0beed8.js",
     "runtime~main.js.map": "/MarleySpoon/static/js/runtime~main.4d0beed8.js.map",
     "static/css/2.3c342dc0.chunk.css": "/MarleySpoon/static/css/2.3c342dc0.chunk.css",
-    "static/js/2.0f330d66.chunk.js": "/MarleySpoon/static/js/2.0f330d66.chunk.js",
-    "static/js/2.0f330d66.chunk.js.map": "/MarleySpoon/static/js/2.0f330d66.chunk.js.map",
+    "static/js/2.10993baf.chunk.js": "/MarleySpoon/static/js/2.10993baf.chunk.js",
+    "static/js/2.10993baf.chunk.js.map": "/MarleySpoon/static/js/2.10993baf.chunk.js.map",
     "index.html": "/MarleySpoon/index.html",
-    "precache-manifest.88061125fde80ddb2f275ca841f46039.js": "/MarleySpoon/precache-manifest.88061125fde80ddb2f275ca841f46039.js",
+    "precache-manifest.0775282e66c81938942a6ccd6263f3ff.js": "/MarleySpoon/precache-manifest.0775282e66c81938942a6ccd6263f3ff.js",
     "service-worker.js": "/MarleySpoon/service-worker.js",
     "static/css/2.3c342dc0.chunk.css.map": "/MarleySpoon/static/css/2.3c342dc0.chunk.css.map",
-    "static/css/main.f0fa7b51.chunk.css.map": "/MarleySpoon/static/css/main.f0fa7b51.chunk.css.map"
+    "static/css/main.c097d5cf.chunk.css.map": "/MarleySpoon/static/css/main.c097d5cf.chunk.css.map"
   }
 }

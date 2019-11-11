@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/MarleySpoon/precache-manifest.88061125fde80ddb2f275ca841f46039.js"
+  "/MarleySpoon/precache-manifest.0775282e66c81938942a6ccd6263f3ff.js"
 );
 
 self.addEventListener('message', (event) => {
