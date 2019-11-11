@@ -1,6 +1,6 @@
 {
-  "name": "maysam-rakuten-weather-dashboard",
-  "homepage": "http://maysam.github.io/WeatherWidget",
+  "name": "maysam-marley-spoon",
+  "homepage": "http://maysam.github.io/MarleySpoon",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

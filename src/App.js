@@ -1,6 +1,19 @@
 import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
-import { Descriptions, Card, Tag, Menu, Layout, Button } from 'antd'
+import {
+  Breadcrumb,
+  List,
+  Empty,
+  Icon,
+  Descriptions,
+  Card,
+  Tag,
+  Menu,
+  Layout,
+  Button
+} from 'antd'
+import Recipe from './components/recipe'
+import Recipes from './components/recipes'
 import data from './data.js'
 import './App.css'
 
@@ -21,7 +34,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.updateWeather()
+    this.loadRecipes()
   }
   // {
   //   "sys": { "type": "Array" },
@@ -30,13 +43,17 @@ class App extends Component {
   //   "total": 1256,
   //   "items": [ /* 100 individual resources */ ]
   // }
-  updateWeather = () => {
+  loadRecipes = () => {
     const chefs = {}
     const tags = {}
     const recipes = {}
+    const assets = {}
     // fetch(url + '&id=' + city.id)
     // .then(response => response.json())
     // .then(data => {
+    data.includes.Asset.forEach(({ sys: { id }, fields }) => {
+      assets[id] = fields
+    })
     data.items.forEach(({ sys: { id, contentType, type }, fields }) => {
       switch (contentType.sys.id) {
         case 'tag':
@@ -47,81 +64,130 @@ class App extends Component {
           break
         case 'recipe':
           recipes[id] = fields
+          for (var i = 9; i >= 0; i--) {
+            recipes[i + id] = fields
+          }
+
           break
         default:
           console.warn('content type ' + contentType.sys.id + ' not handled!!!')
       }
     })
-    this.setState({ chefs, tags, recipes })
+    this.setState({ chefs, tags, recipes, assets })
     // })
     // .catch(error => console.error(error))
   }
 
-  selectMenu = ({ item, key, keyPath, selectedKeys, domEvent }) => {
-    this.setState({ selectedRecipeKey: key })
+  selectRecipe = selectedRecipe => {
+    this.setState({ selectedRecipe })
   }
 
   render() {
-    const { recipes, chefs, tags, selectedRecipeKey } = this.state
+    const { recipes, assets, chefs, tags, selectedRecipe } = this.state
 
     if (recipes === null) {
-      return <div>Loading</div>
+      return <Empty />
     }
-    const selectedRecipe = recipes[selectedRecipeKey]
-    if (selectedRecipeKey) {
+    let card = null
+    let cards = null
+    if (selectedRecipe) {
       window.selectedRecipe = selectedRecipe
-      console.log(Object.keys(selectedRecipe), selectedRecipe.photo.sys.id)
+      console.log(Object.keys(selectedRecipe))
+      console.log(assets[selectedRecipe.photo.sys.id].file)
+      const photo = assets[selectedRecipe.photo.sys.id]
+      const cover = !photo ? null : (
+        <img alt={photo.title} src={photo.file.url} />
+      )
+
+      card = (
+        <Card
+          cover={cover}
+          title={
+            <Descriptions
+              title={selectedRecipe.title}
+              column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
+            >
+              {selectedRecipe.chef && (
+                <Descriptions.Item label="Chef">
+                  {chefs[selectedRecipe.chef.sys.id]}
+                </Descriptions.Item>
+              )}
+              {selectedRecipe.tags && (
+                <Descriptions.Item>
+                  {selectedRecipe.tags.map(({ sys: { id } }) => (
+                    <Tag color="magenta" key={id}>
+                      {tags[id]}
+                    </Tag>
+                  ))}
+                </Descriptions.Item>
+              )}
+            </Descriptions>
+          }
+        >
+          <ReactMarkdown source={selectedRecipe.description} />
+        </Card>
+      )
+    } else {
+      cards = (
+        <List
+          grid={{
+            gutter: 16,
+            column: 4,
+            xs: 1,
+            sm: 2,
+            md: 4,
+            lg: 4,
+            xl: 4,
+            xxl: 6
+          }}
+          dataSource={Object.keys(recipes).map(id => {
+            return { id, ...recipes[id] }
+          })}
+          renderItem={recipe => {
+            const photo = assets[recipe.photo.sys.id]
+            const cover = !photo ? null : (
+              <img alt={photo.title} src={photo.file.url} />
+            )
+            return (
+              <List.Item onClick={() => this.selectRecipe(recipe)}>
+                <Card
+                  title={recipe.title}
+                  cover={cover}
+                  bodyStyle={{ display: 'none' }}
+                />
+              </List.Item>
+            )
+          }}
+        />
+      )
     }
     return (
       <Layout className="App">
-        <Header className="App-header">
+        <Header className="App-header header">
           <span>Marley Spoon</span>
-          <Button type="primary" onClick={() => this.updateWeather()}>
+          <Button type="primary" onClick={() => this.loadRecipes()}>
             Reload
           </Button>
         </Header>
-        <Layout>
-          <Sider>
-            <Menu
-              theme="dark"
-              mode="inline"
-              defaultSelectedKeys={['1']}
-              onClick={this.selectMenu}
-            >
-              {Object.keys(recipes).map(id => (
-                <Menu.Item key={id}>
-                  <span>{recipes[id].title}</span>
-                </Menu.Item>
-              ))}
-            </Menu>
-          </Sider>
-          <Content>
-            {selectedRecipeKey && (
-              <Card
-                title={
-                  <Descriptions title={selectedRecipe.title}>
-                    {selectedRecipe.chef && (
-                      <Descriptions.Item label="Chef">
-                        {chefs[selectedRecipe.chef.sys.id]}
-                      </Descriptions.Item>
-                    )}
+        <Layout style={{ padding: '0 24px 24px' }}>
+          <Content
+            style={{
+              background: '#fff',
+              padding: 24,
+              margin: 0,
+              minHeight: 280
+            }}
+          >
+            <Breadcrumb>
+              <Breadcrumb.Item onClick={() => this.selectRecipe()}>
+                All Recipes
+              </Breadcrumb.Item>
+              {selectedRecipe && (
+                <Breadcrumb.Item>{selectedRecipe.title}</Breadcrumb.Item>
+              )}
+            </Breadcrumb>
 
-                    <Descriptions.Item label="Calories">
-                      {selectedRecipe.calories}
-                    </Descriptions.Item>
-                    {selectedRecipe.tags && (
-                      <Descriptions.Item>
-                        {selectedRecipe.tags.map(({ sys: { id } }) => (
-                          <Tag color="magenta">{tags[id]}</Tag>
-                        ))}
-                      </Descriptions.Item>
-                    )}
-                  </Descriptions>
-                }
-              >
-                <ReactMarkdown source={selectedRecipe.description} />
-              </Card>
-            )}
+            {(selectedRecipe && card) || cards}
           </Content>
         </Layout>
       </Layout>
