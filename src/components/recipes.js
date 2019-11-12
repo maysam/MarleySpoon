@@ -15,7 +15,6 @@ export default ({ recipes, assets, selectRecipe, loadMore }) => (
     }}
     loadMore={loadMore}
     dataSource={Object.keys(recipes)
-      .sort(() => Math.random() - 0.5)
       .map(id => {
         return { id, ...recipes[id] }
       })}
