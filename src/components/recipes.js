@@ -1,18 +1,19 @@
 import React from 'react'
 import { List, Card } from 'antd'
 
-export default ({ recipes, assets, selectRecipe }) => (
+export default ({ recipes, assets, selectRecipe, loadMore }) => (
   <List
     grid={{
       gutter: 16,
       column: 4,
       xs: 1,
-      sm: 2,
-      md: 4,
-      lg: 4,
-      xl: 4,
-      xxl: 6
+      sm: 1,
+      md: 2,
+      lg: 2,
+      xl: 3,
+      xxl: 4
     }}
+    loadMore={loadMore}
     dataSource={Object.keys(recipes)
       .sort(() => Math.random() - 0.5)
       .map(id => {
