@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/MarleySpoon/static/css/main.c097d5cf.chunk.css",
-    "main.js": "/MarleySpoon/static/js/main.dfb36a40.chunk.js",
-    "main.js.map": "/MarleySpoon/static/js/main.dfb36a40.chunk.js.map",
+    "main.css": "/MarleySpoon/static/css/main.3305d658.chunk.css",
+    "main.js": "/MarleySpoon/static/js/main.963c73ed.chunk.js",
+    "main.js.map": "/MarleySpoon/static/js/main.963c73ed.chunk.js.map",
     "runtime~main.js": "/MarleySpoon/static/js/runtime~main.4d0beed8.js",
     "runtime~main.js.map": "/MarleySpoon/static/js/runtime~main.4d0beed8.js.map",
     "static/css/2.3c342dc0.chunk.css": "/MarleySpoon/static/css/2.3c342dc0.chunk.css",
     "static/js/2.10993baf.chunk.js": "/MarleySpoon/static/js/2.10993baf.chunk.js",
     "static/js/2.10993baf.chunk.js.map": "/MarleySpoon/static/js/2.10993baf.chunk.js.map",
     "index.html": "/MarleySpoon/index.html",
-    "precache-manifest.0775282e66c81938942a6ccd6263f3ff.js": "/MarleySpoon/precache-manifest.0775282e66c81938942a6ccd6263f3ff.js",
+    "precache-manifest.1962b0385bd720add40134715d822972.js": "/MarleySpoon/precache-manifest.1962b0385bd720add40134715d822972.js",
     "service-worker.js": "/MarleySpoon/service-worker.js",
     "static/css/2.3c342dc0.chunk.css.map": "/MarleySpoon/static/css/2.3c342dc0.chunk.css.map",
-    "static/css/main.c097d5cf.chunk.css.map": "/MarleySpoon/static/css/main.c097d5cf.chunk.css.map"
+    "static/css/main.3305d658.chunk.css.map": "/MarleySpoon/static/css/main.3305d658.chunk.css.map"
   }
 }

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "90391b78f9b808d0e061601b12e0f571",
+    "revision": "6e74eec96923087db62de0c5811cb05e",
     "url": "/MarleySpoon/index.html"
   },
   {
@@ -8,16 +8,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/MarleySpoon/static/css/2.3c342dc0.chunk.css"
   },
   {
-    "revision": "09250d6f6fb9c90ff8c8",
-    "url": "/MarleySpoon/static/css/main.c097d5cf.chunk.css"
+    "revision": "ce7607f7c54b75d2a0d0",
+    "url": "/MarleySpoon/static/css/main.3305d658.chunk.css"
   },
   {
     "revision": "0dfd215fb2d80e3d43b0",
     "url": "/MarleySpoon/static/js/2.10993baf.chunk.js"
   },
   {
-    "revision": "09250d6f6fb9c90ff8c8",
-    "url": "/MarleySpoon/static/js/main.dfb36a40.chunk.js"
+    "revision": "ce7607f7c54b75d2a0d0",
+    "url": "/MarleySpoon/static/js/main.963c73ed.chunk.js"
   },
   {
     "revision": "928808dfdf2ce585f2e2",
