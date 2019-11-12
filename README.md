@@ -1,7 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), styled using ant.design, data coming from (api.openweathermap.org)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), styled using ant.design, data coming from (contentful.com) using marley spoon sample space key
 
-## Weather Widget
+## Marley Spoon Demo
 
 ![Main Page](/mainpage.png)
-![Settings Page](/settingspage.png)
-![Add Result Page](/addresultpage.png)
+![Recipe Page](/detailspage.png)
+
